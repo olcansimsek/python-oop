@@ -62,6 +62,7 @@ your_dog = Dog('spoon', '3', 'poodle')
 print Dog.species
 print my_dog.breed
 print Dog.species_count  # it is '3' because printed after instances were created
+print my_dog.species_count  # why '3' ??
 print my_dog.id
 print your_dog.id
 print "-----------------"
