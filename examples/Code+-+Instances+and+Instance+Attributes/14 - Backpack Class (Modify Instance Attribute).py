@@ -18,6 +18,8 @@ print(your_backpack.color)
 
 print("Changing Color...")
 my_backpack.color = "Green"
+my_backpack.items.append("foo/bar")
+print (my_backpack.items)
 
 print(my_backpack.color)
 print(your_backpack.color)
