@@ -24,9 +24,9 @@ class Dog:
 
 my_dog = Dog(8)
 
-print(f"My dog is {my_dog.age} years old.")
+print("My dog is {my_dog.age} years old.")
 print("One year later...")
 
 my_dog.age += 1
 
-print(f"Now my dog is {my_dog.age} years old.")
+print("Now my dog is {my_dog.age} years old.")

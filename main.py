@@ -1,4 +1,5 @@
 # classes define the state and the behavior of the object
+# what is 'self': https://www.youtube.com/watch?v=oaiQ5hYKHTE&ab_channel=PythonForEveryone
 
 ### Class Attributes (CA):
 # takes place before the __init__ method
@@ -18,7 +19,7 @@ class House:
 
 
 class Backpack:
-    def __init__(self):
+    def __init__(self):  # 'self' meaning is instance itself, self = my_backpack python passes instance itself to the 'self'
         self.items = []  # 'items' attribute for 'Backpack' class is empty list
         print self
 
@@ -84,3 +85,56 @@ my_movie = Movie("The Fall", 2006)
 
 print my_movie.get_title()
 print "-----------------"
+
+
+class Cat:
+
+    def __init__(self, name, age):
+        self._name = name
+        self.age = age
+
+    def get_name(self):  # function object
+        return self._name
+
+    def set_name(self, new_name):
+        if isinstance(new_name, str) and new_name.isalpha():  # check if new_name is string and alphabetic
+            self._name = new_name
+        else:
+            print "The new name {0} is not a valid name!".format(new_name)
+
+
+my_cat = Cat("Dora", 5)
+print my_cat.get_name()
+
+my_cat.set_name("Gora")
+print my_cat.get_name()
+
+my_cat.set_name("foo/bar")
+print my_cat.get_name()
+print "-----------------"
+
+
+class Planet:
+
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age  # _age property itself
+
+    def get_age(self):  # getter function
+        return self._age
+
+    def set_age(self, new_age):
+        if isinstance(new_age, int):  # check if new_age is integer
+            self._age = new_age
+        else:
+            print ("Please insert a valid age!")
+
+    age = property(get_age, set_age)  # property of getter and setter
+
+
+planet_earth = Planet("earth", "5")
+
+print planet_earth.name
+print planet_earth.age          # this works when there is property of getter and setter
+print planet_earth._age         # this works when you call _age property itself
+print planet_earth.get_age()    # this works when there is getter function
