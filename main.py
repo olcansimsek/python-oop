@@ -50,6 +50,7 @@ class Dog:
         self.name = name
         self.age = age
         self.breed = breed
+        self.__lock = 38
 
         Dog.species_count += 1
 
@@ -65,5 +66,21 @@ print Dog.species_count  # it is '3' because printed after instances were create
 print my_dog.species_count  # why '3' ??
 print my_dog.id
 print your_dog.id
+print my_dog._Dog__lock  # you can print __lock because this attribute has a default vaule
+print your_dog._Dog__lock
 print "-----------------"
 
+
+class Movie:
+    def __init__(self, title, year):
+        self._title = title
+        self.rating = year
+
+    def get_title(self):
+        return self._title
+
+
+my_movie = Movie("The Fall", 2006)
+
+print my_movie.get_title()
+print "-----------------"
