@@ -27,7 +27,7 @@ class Backpack:
 my_backpack = Backpack()  # 'my_backpack' instance, it stores 'Backpack' object
 print my_backpack  # same as 'print self'
 print (type(my_backpack))  # instance
-print "-----------------"
+print ("-----------------\n")
 
 
 class Backpack_2:
@@ -39,7 +39,7 @@ class Backpack_2:
 
 your_backpack = Backpack_2()
 print your_backpack.color
-print "-----------------"
+print ("-----------------\n")
 
 
 class Dog:
@@ -69,7 +69,7 @@ print my_dog.id
 print your_dog.id
 print my_dog._Dog__lock  # you can print __lock because this attribute has a default vaule
 print your_dog._Dog__lock
-print "-----------------"
+print ("-----------------\n")
 
 
 class Movie:
@@ -84,7 +84,7 @@ class Movie:
 my_movie = Movie("The Fall", 2006)
 
 print my_movie.get_title()
-print "-----------------"
+print ("-----------------\n")
 
 
 class Cat:
@@ -111,7 +111,7 @@ print my_cat.get_name()
 
 my_cat.set_name("foo/bar")
 print my_cat.get_name()
-print "-----------------"
+print ("-----------------\n")
 
 
 class Planet:
@@ -138,3 +138,71 @@ print planet_earth.name
 print planet_earth.age          # this works when there is property of getter and setter
 print planet_earth._age         # this works when you call _age property itself
 print planet_earth.get_age()    # this works when there is getter function
+print ("-----------------\n")
+
+
+class Circle:
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def diameter(self):
+        return self.radius * 2
+
+
+my_cirle = Circle(5)
+Circle.diameter(my_cirle)
+print (my_cirle.radius)
+print (my_cirle.diameter())
+print ("-----------------\n")
+
+
+class Bus:
+
+    def __init__(self, color):
+        self._color = color
+
+    def welcome_student(self, student_name):
+        print("Hello {0}, how are you today?".format(student_name))
+
+
+bus = Bus("blue")
+Bus.welcome_student(bus, "Johnathan")  # a new syntax/method to call instance
+print ("-----------------\n")
+
+
+class Vehicle:
+
+    def __init__(self, color, licence_plate, is_electric):
+        self.color = color
+        self.licence_plate = licence_plate
+        self.is_electric = is_electric
+
+    def show_licence_plate(self):
+        print (self.licence_plate)
+
+    def show_info(self):
+        print ("===== My Vehicle Info =====")
+        print ("COLOR: {0}".format(self.color))
+        print ("LICENCE PLATE: {0}".format(self.licence_plate))
+        print ("ELECTRICAL: {0} \n".format(self.is_electric))
+
+
+class Employee:
+
+    def __init__(self, name, vehicle):
+        self.name = name
+        self.vehicle = vehicle  # employee class has vehicle class in it
+
+    def show_vehicle_info(self):
+        self.vehicle.show_info()
+
+
+my_vehicle = Vehicle("Black", "VCF-2940", is_electric=True)
+employee_1 = Employee("Dany", my_vehicle)  # you can aggregate a Vehicle instance to the employee_1 instance of Employee class
+
+my_vehicle.show_info()
+employee_1.show_vehicle_info()  # you can reach both employee and vehicle instance attributes
+employee_1.vehicle.show_info()  # you can reach both employee and vehicle instance attributes
+print (employee_1.vehicle.color)  # you can reach both employee and vehicle instance attributes
+print ("-----------------\n")
